@@ -1,3 +1,5 @@
+const { transform } = require('typescript');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -19,7 +21,16 @@ module.exports = {
         darkgray: '#212936',  
         graytext: '#4D5562',  
         transparentwhite: '#F9FAFBCC'
-      }
+      },
+      keyframes:{
+        'horizontal-slide':{
+          '0%' : { transform : 'translateX(-100%)'},
+          '100%' : {transform : 'translateX(100%)'}
+        }
+      },
+      animation:{
+        'horizontal-slide': 'horizontal-slide 1.5s ease-in-out infintite'
+      },
     },
   },
   plugins: [],
