@@ -2,6 +2,8 @@ import Upload from "../images/exit.svg"
 import {useCallback, useState} from "react"
 import { useDropzone } from "react-dropzone"
 import { Loader } from "./Loader";
+import { ShareButton } from "./ShareButton";
+import { DownloadButton } from "./DownloadButton";
 
 const MAX_SIZE = 2 * 1024 * 1024;
 
@@ -42,7 +44,7 @@ export const DragAndDrop = ({lightMode}:{
     });
 
 
-
+    
 
     return <div>
         <div {...getRootProps()} className={`flex item-center-justify-center rounded-lg ${lightMode ? "bg-white" : "bg-darkgray"} `}> 
@@ -63,23 +65,37 @@ export const DragAndDrop = ({lightMode}:{
                             <div className="p-4">
                             <img src={Upload} alt="upload"></img>
                         </div>
-                        <div className={`pl-4 text-white font-Normal text-lg p-2 ${lightMode ? "text-dark" : "text-white"}`}>
+                        <div className={`pl-4 font-semibold text-md p-2 ${lightMode ? "text-dark" : "text-white"}`}>
                             Drag & drop a file or 
                             <span className="text-primary p-2">
                             browse files
                             </span> 
                         </div>
-                        <div className={`text-white font-thin ${lightMode ? "text-darkgray" : "text-white"}`}>
+                        <div className={`font-thin text-md ${lightMode ? "text-darkgray" : "text-white"}`}>
                             JPG, PNG or GIF - Max file size 2MB
                         </div>
                         </div>
                         </div>
+                        
                         </>
                     )}
                         
                     
             </div>
+
         </div>
-        
+        {uploadedImage ? 
+        (
+            <div className="flex justify-center items-center pt-4">
+                            <div className="p-2">
+                                <ShareButton />
+                            
+                            </div>
+                            <div>
+                                <DownloadButton />
+                            </div>
+                        </div>
+        ) : (<></>)}
+                        
     </div>
 }
