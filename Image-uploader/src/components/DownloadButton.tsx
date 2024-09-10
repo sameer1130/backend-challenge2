@@ -1,6 +1,6 @@
 import { Button } from "./Button"
 import Download from "../images/download.svg"
-import { ShareButton } from "./ShareButton"
+// import { ShareButton } from "./ShareButton"
 import { useState } from "react"
 
 
@@ -15,6 +15,7 @@ export const DownloadButton = () => {
         link.href = shareLink;
         link.download = shareLink.split("/").pop() || "download";
         document.body.removeChild(link)
+        console.log(setShareLink)
     }
     return (
         <div>
